@@ -1,51 +1,85 @@
-@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Raleway:wght@300;400;500;600;700&display=swap');
+
+/* ═══════════════════════════════════════════════════
+   DESIGN SYSTEM — SpaBurn
+   Style: Soft UI Evolution (Wellness / Spa)
+   Palette: Sage & Stone + Rose Accent
+   Typography: Lora (heading) + Raleway (body)
+   Pattern: Scroll-Triggered Storytelling
+═══════════════════════════════════════════════════ */
 
 :root {
-  /* Color Palette - Minimalist Sage & Stone (Earthy/Premium) */
-  --primary: #4B6344;
-  --primary-light: #6B8463;
-  --secondary: #C29F6D;
-  --bg: #F7F8F5;
-  --bg-card: #ffffff;
-  --text: #2D342B;
-  --text-muted: #5B6359;
-  --stone: #D4D9C8;
-  --border: rgba(75, 99, 68, 0.1);
-  --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
-  --shadow-md: 0 10px 25px -5px rgba(45, 52, 43, 0.08);
-  --shadow-lg: 0 20px 50px -10px rgba(45, 52, 43, 0.12);
-  
-  --sans: 'Raleway', system-ui, sans-serif;
-  --serif: 'Lora', serif;
-  
+  /* ── Core Palette ── */
+  --primary:        #4B6344;   /* sage green */
+  --primary-light:  #6B8463;
+  --primary-dark:   #3a4f34;
+  --secondary:      #C29F6D;   /* warm gold */
+  --secondary-light:#D4B88A;
+  --accent:         #E8C4D0;   /* soft blush */
+
+  /* ── Surfaces ── */
+  --bg:             #FDF9F5;
+  --bg-card:        #FFFFFF;
+  --bg-tint:        #F5F0EB;
+
+  /* ── Text — WCAG AA min 4.5:1 ── */
+  --text:           #2D342B;   /* 14:1 on white */
+  --text-muted:     #4A5548;   /* 7:1 on white  */
+  --text-subtle:    #6B7468;   /* 4.6:1 on white */
+
+  /* ── Borders / Misc ── */
+  --stone:          #D4D9C8;
+  --border:         rgba(75, 99, 68, 0.12);
+
+  /* ── Shadows — Soft UI ── */
+  --shadow-xs:  0 1px 3px rgba(45, 52, 43, 0.06), 0 1px 2px rgba(45, 52, 43, 0.04);
+  --shadow-sm:  0 4px 6px -1px rgba(45, 52, 43, 0.07), 0 2px 4px -1px rgba(45, 52, 43, 0.04);
+  --shadow-md:  0 10px 25px -5px rgba(45, 52, 43, 0.09), 0 4px 10px -5px rgba(45, 52, 43, 0.05);
+  --shadow-lg:  0 20px 40px -10px rgba(45, 52, 43, 0.13), 0 8px 16px -8px rgba(45, 52, 43, 0.07);
+  --shadow-card-hover: 0 24px 60px -12px rgba(75, 99, 68, 0.22);
+
+  /* ── Transitions ── */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ── Typography ── */
+  --sans: 'Raleway', system-ui, -apple-system, sans-serif;
+  --serif: 'Lora', 'Georgia', serif;
+
   font-family: var(--sans);
-  line-height: 1.6;
+  line-height: 1.65;
   font-weight: 400;
   color: var(--text);
   background-color: var(--bg);
-  
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-* {
+/* ══════════════ Reset & Base ══════════════ */
+*, *::before, *::after {
   box-sizing: border-box;
+}
+
+html {
   scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
   overflow-x: hidden;
+  background: var(--bg);
 }
 
 #root {
   width: 100%;
 }
 
-/* Typography */
-h1, h2, h3 {
+/* ══════════════ Typography ══════════════ */
+
+h1, h2, h3, h4, h5 {
   font-family: var(--serif);
   line-height: 1.1;
   margin: 0;
@@ -53,34 +87,71 @@ h1, h2, h3 {
 }
 
 h1 {
-  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-size: clamp(2.8rem, 6.5vw, 5.2rem);
   font-weight: 500;
   letter-spacing: -0.03em;
 }
 
 h2 {
-  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
   font-weight: 500;
   color: var(--primary);
 }
 
-p {
-  font-size: 1.25rem;
-  color: var(--text-muted);
-  max-width: 650px;
+h3 {
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  font-weight: 500;
 }
 
-/* Layout Utilities */
+h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+p {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  max-width: 620px;
+  line-height: 1.75;
+  margin: 0;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+strong {
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* ══════════════ Accessibility ══════════════ */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+/* ══════════════ Layout ══════════════ */
+
 .section {
   padding: 120px 5vw;
   max-width: 1400px;
   margin: 0 auto;
-}
-
-@media (max-width: 768px) {
-  .section {
-    padding: 80px 24px;
-  }
 }
 
 .grid-bento {
@@ -89,47 +160,59 @@ p {
   gap: 24px;
 }
 
+/* ══════════════ Bento Cards ══════════════ */
+
 .bento-card {
   background: var(--bg-card);
   padding: 40px;
   border-radius: 32px;
   border: 1px solid var(--stone);
   box-shadow: var(--shadow-sm);
-  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out), border-color 0.25s ease;
   display: flex;
   flex-direction: column;
+  cursor: default;
 }
 
 .bento-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--primary);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--primary-light);
 }
 
-/* Components */
+/* ══════════════ Buttons ══════════════ */
+
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 20px 40px;
+  padding: 18px 36px;
   border-radius: 16px;
+  font-family: var(--sans);
   font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
   border: none;
-  font-size: 1.1rem;
-  letter-spacing: 0.02em;
+  line-height: 1;
 }
 
 .btn-primary {
   background: var(--primary);
-  color: white;
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(75, 99, 68, 0.3);
 }
 
 .btn-primary:hover {
-  background: var(--primary-light);
-  transform: scale(1.02);
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(75, 99, 68, 0.35);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
 }
 
 .btn-outline {
@@ -143,55 +226,299 @@ p {
   color: var(--primary);
 }
 
-/* Glassmorphism */
-.glass {
-  background: rgba(247, 248, 245, 0.8);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--stone);
-}
-
-/* Text Effects */
-.text-italic {
-  font-family: var(--serif);
-  font-style: italic;
-}
+/* ══════════════ Badges ══════════════ */
 
 .badge {
   background: var(--stone);
   color: var(--primary);
   padding: 8px 20px;
   border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ══════════════ Glassmorphism ══════════════ */
+
+.glass {
+  background: rgba(253, 249, 245, 0.88);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(212, 217, 200, 0.6);
+  box-shadow: var(--shadow-md);
+}
+
+/* ══════════════ Text Effects ══════════════ */
+
+.text-italic {
+  font-family: var(--serif);
+  font-style: italic;
+}
+
+/* ══════════════ Offer Pill ══════════════ */
+
+.offer-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  border-radius: 100px;
+  background: linear-gradient(135deg, rgba(194,159,109,0.12) 0%, rgba(232,196,208,0.12) 100%);
+  border: 1px solid rgba(194,159,109,0.35);
   font-size: 0.9rem;
   font-weight: 600;
-  display: inline-block;
-  margin-bottom: 24px;
+  color: var(--text);
 }
 
-/* Animations */
-@keyframes reveal {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+/* ══════════════ Callout Bar ══════════════ */
+
+.callout-bar {
+  padding: 24px 32px;
+  background: rgba(194,159,109,0.1);
+  border-left: 4px solid var(--secondary);
+  border-radius: 0 16px 16px 0;
 }
 
-.reveal {
-  animation: reveal 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+/* ══════════════ Offer Card ══════════════ */
+
+.offer-card {
+  padding: 64px 5vw;
+  background: linear-gradient(135deg, #fff 0%, #fef7f0 100%);
+  border: 2px solid var(--secondary);
+  border-radius: 48px;
+  box-shadow: var(--shadow-lg);
 }
 
-/* Mobile Helpers */
+.offer-list {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.offer-list li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+/* ══════════════ Form Inputs — Fieldset Style ══════════════ */
+
+.form-field {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-field fieldset {
+  border: 1.5px solid var(--stone);
+  border-radius: 12px;
+  padding: 0;
+  margin: 0;
+  transition: all 0.25s var(--ease-out);
+  background: var(--bg-card);
+}
+
+.form-field fieldset:focus-within {
+  border-color: var(--primary);
+  box-shadow: 0 4px 12px rgba(75, 99, 68, 0.08);
+}
+
+.form-field fieldset.has-error {
+  border-color: #e57373;
+}
+
+.form-field legend {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-subtle);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0 8px;
+  margin-left: 12px;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  padding: 4px 16px 12px;
+}
+
+.input-wrapper input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  padding: 0;
+  outline: none;
+  width: 100%;
+}
+
+.input-wrapper input::placeholder {
+  color: var(--stone);
+  opacity: 0.8;
+}
+
+.clear-btn {
+  background: none;
+  border: none;
+  color: var(--stone);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: color 0.2s ease;
+}
+
+.clear-btn:hover {
+  color: var(--primary);
+}
+
+.form-error {
+  display: block;
+  font-size: 0.78rem;
+  color: #d32f2f;
+  margin-top: 6px;
+  margin-left: 12px;
+  font-weight: 500;
+}
+
+/* ══════════════ Process Cards ══════════════ */
+
+.step-number {
+  font-family: var(--serif);
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--stone);
+  line-height: 1;
+}
+
+/* ══════════════ Outcome Cards ══════════════ */
+
+.outcome-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* ══════════════ Animations ══════════════ */
+
+/* Only apply if user is ok with motion */
+@media (prefers-reduced-motion: no-preference) {
+  .bento-card {
+    will-change: transform;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ══════════════ Responsive ══════════════ */
+
+/* ── 1024px ── */
+@media (max-width: 1024px) {
+  .section {
+    padding: 80px 32px;
+  }
+
+  .grid-bento {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .bento-card[style*="span 8"],
+  .bento-card[style*="span 7"],
+  .bento-card[style*="span 6"],
+  .bento-card[style*="span 5"],
+  .bento-card[style*="span 4"],
+  .bento-card[style*="span 3"] {
+    grid-column: span 6 !important;
+  }
+}
+
+/* ── 768px ── */
 @media (max-width: 768px) {
+  h1 {
+    font-size: clamp(2.2rem, 8vw, 3.5rem);
+  }
+
+  h2 {
+    font-size: clamp(1.7rem, 6vw, 2.4rem);
+  }
+
+  .section {
+    padding: 64px 20px;
+  }
+
   .grid-bento {
     display: flex;
     flex-direction: column;
   }
-  .mobile-hide {
-    display: none !important;
+
+  /* Disable heavy hover lifts on touch */
+  .bento-card:hover {
+    transform: none;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .process-grid {
+    display: flex !important;
+    flex-direction: column;
+  }
+
+  /* Audit / freeaudit two-column → single */
+  div[style*="grid-template-columns: 1fr 1fr"] {
+    display: flex !important;
+    flex-direction: column;
+  }
+
+  .offer-card {
+    padding: 48px 24px;
+  }
+
+  .btn {
+    padding: 16px 28px;
+    font-size: 0.95rem;
   }
 }
 
-@media (min-width: 769px) {
-  .desktop-hide {
-    display: none !important;
+/* ── 480px ── */
+@media (max-width: 480px) {
+  .offer-pill {
+    flex-direction: column;
+    text-align: center;
+    padding: 12px 20px;
+  }
+
+  .step-number {
+    font-size: 2.2rem;
   }
 }
 
+/* ── Floating Button Mobile ── */
+@media (max-width: 600px) {
+  .floating-audit-badge {
+    bottom: 24px !important;
+    right: 24px !important;
+    scale: 0.9;
+  }
+}
