@@ -73,7 +73,7 @@ npm run build
 ## 📂 Project Structure
 
 ```text
-spa-burn/
+spa-bern/
 ├── .github/workflows/     # CI/CD Deployment pipeline
 ├── public/                # Static assets
 ├── src/
