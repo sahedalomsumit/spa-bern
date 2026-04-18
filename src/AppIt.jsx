@@ -49,7 +49,7 @@ const Hero = () => (
   <section
     className="section"
     style={{
-      paddingTop: "140px",
+      paddingTop: "100px",
       minHeight: "100vh",
       display: "flex",
       flexDirection: "column",
@@ -105,7 +105,9 @@ const Hero = () => (
         </a>
         <div className="offer-pill">
           <Star size={16} style={{ color: "var(--secondary)" }} />
-          <span>Sconto del 25% sul tuo primo progetto — posti limitati a Berna</span>
+          <span>
+            Sconto del 25% sul tuo primo progetto — posti limitati a Berna
+          </span>
         </div>
       </div>
     </Reveal>
@@ -225,7 +227,8 @@ const Problem = () => (
           Prenotazione nascosta
         </h3>
         <p>
-          La prenotazione è nascosta o confusa — quindi i visitatori si arrendono prima di agire.
+          La prenotazione è nascosta o confusa — quindi i visitatori si
+          arrendono prima di agire.
         </p>
       </Reveal>
 
@@ -446,7 +449,9 @@ const LimitedOffer = () => (
               size={20}
               style={{ color: "var(--primary)", flexShrink: 0 }}
             />
-            <span>Un modo semplice per migliorare il tuo sito senza pieno rischio</span>
+            <span>
+              Un modo semplice per migliorare il tuo sito senza pieno rischio
+            </span>
           </li>
         </ul>
         <a
@@ -454,7 +459,8 @@ const LimitedOffer = () => (
           className="btn btn-primary"
           style={{ marginTop: "40px" }}
         >
-          Prenota il tuo posto <ArrowRight size={18} style={{ marginLeft: "8px" }} />
+          Prenota il tuo posto{" "}
+          <ArrowRight size={18} style={{ marginLeft: "8px" }} />
         </a>
       </div>
     </Reveal>
@@ -592,7 +598,10 @@ const FreeAudit = () => (
                 icon: <NavigationOff size={20} />,
                 text: "Cosa sta bloccando le prenotazioni",
               },
-              { icon: <Zap size={20} />, text: "Cosa può essere migliorato rapidamente" },
+              {
+                icon: <Zap size={20} />,
+                text: "Cosa può essere migliorato rapidamente",
+              },
             ].map((item, i) => (
               <div
                 key={i}
@@ -668,7 +677,12 @@ const FreeAudit = () => (
 
 /* ─────────────────── Audit Form ─────────────────── */
 const AuditForm = () => {
-  const [state, setState] = useState({ name: "", email: "", url: "", phone: "" });
+  const [state, setState] = useState({
+    name: "",
+    email: "",
+    url: "",
+    phone: "",
+  });
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -685,7 +699,8 @@ const AuditForm = () => {
         error = "Please enter a valid email address";
       }
     } else if (name === "url") {
-      const urlRegex = /^(https?:\/\/)?(www\.)?[a-zA-Z0-9-]+\.[a-zA-Z]{2,}(\/.*)?$/;
+      const urlRegex =
+        /^(https?:\/\/)?(www\.)?[a-zA-Z0-9-]+\.[a-zA-Z]{2,}(\/.*)?$/;
       if (!value) {
         error = "URL del Sito is required";
       } else if (!urlRegex.test(value)) {
@@ -713,24 +728,24 @@ const AuditForm = () => {
     if (!validate()) return;
 
     setLoading(true);
-    
+
     const SHEETDB_URL = import.meta.env.VITE_SHEETDB_URL;
 
     try {
       const response = await fetch(SHEETDB_URL, {
         method: "POST",
         headers: {
-          "Accept": "application/json",
-          "Content-Type": "application/json"
+          Accept: "application/json",
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           data: [
             {
               ...state,
-              date: new Date().toLocaleString("it-IT")
-            }
-          ]
-        })
+              date: new Date().toLocaleString("it-IT"),
+            },
+          ],
+        }),
       });
 
       if (response.ok) {
@@ -830,7 +845,8 @@ const AuditForm = () => {
               onBlur={handleBlur}
               onChange={(e) => {
                 setState({ ...state, email: e.target.value });
-                if (errors.email) setErrors((prev) => ({ ...prev, email: null }));
+                if (errors.email)
+                  setErrors((prev) => ({ ...prev, email: null }));
               }}
             />
             {state.email && (
@@ -1060,7 +1076,8 @@ const VisualPreview = () => (
           color: "var(--text)",
         }}
       >
-        Richiedi la TUA Anteprima <Palette size={18} style={{ marginLeft: "8px" }} />
+        Richiedi la TUA Anteprima{" "}
+        <Palette size={18} style={{ marginLeft: "8px" }} />
       </a>
     </Reveal>
 
@@ -1344,7 +1361,8 @@ const FinalCTA = () => (
           margin: "24px auto 0",
         }}
       >
-        Risolviamolo — con un piano dettagliato e il 25% di sconto sul tuo primo progetto.
+        Risolviamolo — con un piano dettagliato e il 25% di sconto sul tuo primo
+        progetto.
       </p>
       <div
         style={{

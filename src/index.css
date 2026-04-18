@@ -504,9 +504,10 @@ strong {
 /* ── 480px ── */
 @media (max-width: 480px) {
   .offer-pill {
-    flex-direction: column;
+    flex-direction: row;
     text-align: center;
     padding: 12px 20px;
+    font-size: 10px;
   }
 
   .step-number {
