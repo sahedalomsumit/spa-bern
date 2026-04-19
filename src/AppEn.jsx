@@ -18,6 +18,9 @@ import {
   ChevronUp,
   Send,
   XCircle,
+  Mail,
+  Phone,
+  Plus,
 } from "lucide-react";
 import heroImg from "./assets/hero_spa_sage.png";
 import profileImg from "./assets/sahedalomsumit-profile-removebg-preview.png";
@@ -668,7 +671,8 @@ const FreeAudit = () => (
 
 /* ─────────────────── Audit Form ─────────────────── */
 const AuditForm = () => {
-  const [state, setState] = useState({ name: "", email: "", url: "", phone: "" });
+  const [state, setState] = useState({ name: "", email: "", url: "", phone: "", notes: "" });
+  const [isExpanded, setIsExpanded] = useState(false);
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -791,7 +795,7 @@ const AuditForm = () => {
     >
       <div className="form-field">
         <fieldset className={errors.name ? "has-error" : ""}>
-          <legend>Full Name *</legend>
+          <legend>Full Name <span className="required">*</span></legend>
           <div className="input-wrapper">
             <input
               type="text"
@@ -820,7 +824,7 @@ const AuditForm = () => {
 
       <div className="form-field">
         <fieldset className={errors.email ? "has-error" : ""}>
-          <legend>Work Email *</legend>
+          <legend>Email <span className="required">*</span></legend>
           <div className="input-wrapper">
             <input
               type="email"
@@ -849,7 +853,7 @@ const AuditForm = () => {
 
       <div className="form-field">
         <fieldset className={errors.url ? "has-error" : ""}>
-          <legend>Website URL *</legend>
+          <legend>Website URL <span className="required">*</span></legend>
           <div className="input-wrapper">
             <input
               type="text"
@@ -876,37 +880,68 @@ const AuditForm = () => {
         {errors.url && <span className="form-error">{errors.url}</span>}
       </div>
 
-      <div className="form-field">
-        <fieldset>
-          <legend>Phone Number (WhatsApp)</legend>
-          <div className="input-wrapper">
-            <input
-              type="tel"
-              name="phone"
-              placeholder="e.g. +41 79 123 45 67"
-              value={state.phone}
-              onChange={(e) => {
-                setState({ ...state, phone: e.target.value });
-              }}
-            />
-            {state.phone && (
-              <button
-                type="button"
-                className="clear-btn"
-                onClick={() => clearField("phone")}
-              >
-                <XCircle size={16} />
-              </button>
-            )}
+      {!isExpanded ? (
+        <button
+          type="button"
+          onClick={() => setIsExpanded(true)}
+          className="expand-btn"
+        >
+          <Plus size={16} /> Add whatsapp number & notes
+        </button>
+      ) : (
+        <motion.div
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: "auto" }}
+          transition={{ duration: 0.3 }}
+          style={{ overflow: "hidden" }}
+        >
+          <div className="form-field">
+            <fieldset>
+              <legend>WhatsApp Number</legend>
+              <div className="input-wrapper">
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="e.g. +41 79 123 45 67"
+                  value={state.phone}
+                  onChange={(e) => {
+                    setState({ ...state, phone: e.target.value });
+                  }}
+                />
+                {state.phone && (
+                  <button
+                    type="button"
+                    className="clear-btn"
+                    onClick={() => clearField("phone")}
+                  >
+                    <XCircle size={16} />
+                  </button>
+                )}
+              </div>
+            </fieldset>
           </div>
-        </fieldset>
-      </div>
+
+          <div className="form-field">
+            <fieldset>
+              <legend>Any specific notes?</legend>
+              <div className="input-wrapper">
+                <textarea
+                  name="notes"
+                  placeholder="Tell me more about your goals or specific concerns..."
+                  value={state.notes}
+                  onChange={(e) => setState({ ...state, notes: e.target.value })}
+                />
+              </div>
+            </fieldset>
+          </div>
+        </motion.div>
+      )}
 
       <button
         type="submit"
         className="btn btn-primary"
         disabled={loading}
-        style={{ width: "100%", marginTop: "12px", opacity: loading ? 0.7 : 1 }}
+        style={{ width: "100%", marginTop: "16px", opacity: loading ? 0.7 : 1 }}
         aria-label="Request your free homepage audit"
       >
         {loading ? (
@@ -1192,57 +1227,88 @@ const VisualPreview = () => (
 const About = () => (
   <section id="about" className="section">
     <div className="grid-bento">
-      <Reveal
-        delay={0}
-        className="bento-card"
+      <div
         style={{
           gridColumn: "span 5",
-          overflow: "hidden",
-          padding: 0,
-          minHeight: "420px",
-          background: "var(--bg-tint)",
           display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          position: "relative",
+          flexDirection: "column",
+          gap: "24px",
         }}
       >
-        <img
-          src={blobSvg}
+        <Reveal
+          delay={0}
+          className="bento-card"
           style={{
-            position: "absolute",
-            width: "120%",
-            height: "120%",
-            opacity: 0.15,
-            transform: "scale(1.2)",
-            filter: "blur(40px)",
-          }}
-          alt=""
-        />
-        <img
-          src={blobSvg}
-          style={{
-            position: "absolute",
-            width: "130%",
-            height: "130%",
-            opacity: 0.8,
-            zIndex: 1,
-          }}
-          alt=""
-        />
-        <img
-          src={profileImg}
-          alt="Sahed Alom Sumit, web designer specializing in the Bern market"
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "contain",
+            overflow: "hidden",
+            padding: 0,
+            minHeight: "420px",
+            background: "var(--bg-tint)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
             position: "relative",
-            zIndex: 2,
-            marginTop: "20px",
           }}
-        />
-      </Reveal>
+        >
+          <img
+            src={blobSvg}
+            style={{
+              position: "absolute",
+              width: "120%",
+              height: "120%",
+              opacity: 0.15,
+              transform: "scale(1.2)",
+              filter: "blur(40px)",
+            }}
+            alt=""
+          />
+          <img
+            src={blobSvg}
+            style={{
+              position: "absolute",
+              width: "130%",
+              height: "130%",
+              opacity: 0.8,
+              zIndex: 1,
+            }}
+            alt=""
+          />
+          <img
+            src={profileImg}
+            alt="Sahed Alom Sumit, web designer specializing in the Bern market"
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "contain",
+              position: "relative",
+              zIndex: 2,
+              marginTop: "20px",
+            }}
+          />
+        </Reveal>
+
+        <Reveal delay={100}>
+          <div className="contact-card bento-card" style={{ padding: "24px", gap: "16px", cursor: "default" }}>
+            <div className="badge" style={{ marginBottom: "8px", display: "flex", justifyContent: "flex-start" }}>Direct Contact</div>
+            <a href="mailto:sahedalomsumit@gmail.com" className="contact-item">
+              <div className="contact-icon">
+                <Mail size={18} />
+              </div>
+              sahedalomsumit@gmail.com
+            </a>
+            <a
+              href="https://wa.me/358415765539"
+              className="contact-item"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className="contact-icon">
+                <Phone size={18} />
+              </div>
+              +358 41 576 5539 (WhatsApp)
+            </a>
+          </div>
+        </Reveal>
+      </div>
 
       <Reveal
         delay={150}
@@ -1434,6 +1500,10 @@ const FloatingAuditButton = () => {
           fontWeight: 600,
           whiteSpace: "nowrap",
           cursor: "pointer",
+          willChange: "transform",
+          transform: "translateZ(0)",
+          WebkitFontSmoothing: "antialiased",
+          backfaceVisibility: "hidden",
         }}
         whileHover={{
           scale: 1.05,

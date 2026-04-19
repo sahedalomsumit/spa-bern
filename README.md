@@ -19,15 +19,15 @@ SpaBern is a high-end, minimalist landing page designed for spa and wellness bus
 
 ## 🛠️ Technology Stack
 
-| Category | Technology |
-| :--- | :--- |
-| **Framework** | [React 19](https://react.dev/) |
-| **Bundler** | [Vite 8](https://vitejs.dev/) |
-| **Styling** | Vanilla CSS (Soft UI System) |
-| **Animations** | [Framer Motion](https://www.framer.com/motion/) |
-| **Icons** | [Lucide React](https://lucide.dev/) |
-| **Localization** | [i18next](https://www.i18next.com/) |
-| **Storage** | [SheetDB](https://sheetdb.io/) (Google Sheets Integration) |
+| Category         | Technology                                                 |
+| :--------------- | :--------------------------------------------------------- |
+| **Framework**    | [React 19](https://react.dev/)                             |
+| **Bundler**      | [Vite 8](https://vitejs.dev/)                              |
+| **Styling**      | Vanilla CSS (Soft UI System)                               |
+| **Animations**   | [Framer Motion](https://www.framer.com/motion/)            |
+| **Icons**        | [Lucide React](https://lucide.dev/)                        |
+| **Localization** | [i18next](https://www.i18next.com/)                        |
+| **Storage**      | [SheetDB](https://sheetdb.io/) (Google Sheets Integration) |
 
 ---
 
@@ -41,17 +41,20 @@ SpaBern is a high-end, minimalist landing page designed for spa and wellness bus
 ### Installation
 
 1. **Clone the repository:**
+
    ```bash
    git clone https://github.com/sahedalomsumit/spa-burn.git
    ```
 
 2. **Install dependencies:**
+
    ```bash
    npm install
    ```
 
 3. **Set up Environment Variables:**
    Create a `.env` file in the root directory:
+
    ```env
    VITE_SHEETDB_URL=your_sheetdb_api_endpoint
    ```
@@ -64,6 +67,7 @@ SpaBern is a high-end, minimalist landing page designed for spa and wellness bus
 ### Building for Production
 
 To generate a production-ready bundle in the `dist` folder:
+
 ```bash
 npm run build
 ```
@@ -93,6 +97,7 @@ spa-bern/
 ## 📈 Marketing Strategy
 
 The page follows a strategic conversion funnel:
+
 1. **The Hook**: Targeted messaging for the Bern wellness market.
 2. **The Problem**: Identifying hidden customer loss on existing websites.
 3. **The Solution**: Highlighting the "Passive Brochure vs. Active Booking Engine" transformation.
