@@ -28,7 +28,6 @@ SpaGrow is a high-end, minimalist landing page for **spa and wellness businesses
 | **Styling**      | Vanilla CSS (Soft UI System)                               |
 | **Animations**   | [Framer Motion](https://www.framer.com/motion/)            |
 | **Icons**        | [Lucide React](https://lucide.dev/)                        |
-| **Localization** | [i18next](https://www.i18next.com/)                        |
 | **Storage**      | [SheetDB](https://sheetdb.io/) (Google Sheets Integration) |
 
 ---
@@ -46,6 +45,7 @@ SpaGrow is a high-end, minimalist landing page for **spa and wellness businesses
 
    ```bash
    git clone https://github.com/sahedalomsumit/spa-burn.git
+   cd spa-burn
    ```
 
 2. **Install dependencies:**
@@ -79,12 +79,11 @@ npm run build
 ## 📂 Project Structure
 
 ```text
-spa-grow/
+SpaGrow/
 ├── .github/workflows/     # CI/CD Deployment pipeline
 ├── public/                # Static assets
 ├── src/
 │   ├── assets/            # Images, icons, and blobs
-│   ├── components/        # Reusable UI components
 │   ├── App.jsx            # Main application entry
 │   ├── App.css            # Styles for the main application
 │   ├── index.css          # Design system and global styles
@@ -102,7 +101,7 @@ The page follows a strategic conversion funnel:
 1. **The Hook**: Targeted messaging for the global wellness market.
 2. **The Problem**: Identifying hidden customer loss on existing websites.
 3. **The Solution**: Highlighting the "Passive Brochure vs. Active Booking Engine" transformation.
-4. **The Offer**: Limited-time 25% discount for local businesses.
+4. **The Offer**: Limited-time 25% discount for wellness brands.
 5. **The Proof**: Outcomes including instant trust and mobile independence.
 6. **The Action**: Free Homepage Audit CTA.
 
