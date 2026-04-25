@@ -115,7 +115,7 @@ const Header = () => {
       >
         {/* Logo */}
         <a
-          href="#hero"
+          href="/"
           style={{
             display: "flex",
             alignItems: "center",
