@@ -30,7 +30,6 @@ import blobSvg from "./assets/blob.svg";
 import auraBernImg from "./assets/Aura Bern.png";
 import jenniImg from "./assets/jenni-wellbeing.png";
 import logoImg from "./assets/favicon-sahed-alom-sumit.png";
-import "./App.css";
 
 /* ─────────────────── Scroll Reveal Hook ─────────────────── */
 function Reveal({ children, delay = 0, className = "", style = {} }) {
@@ -53,6 +52,14 @@ function Reveal({ children, delay = 0, className = "", style = {} }) {
 }
 
 /* ─────────────────── Header ─────────────────── */
+const navLinks = [
+  { name: "PROJECTS", href: "#projects" },
+  { name: "PROCESS", href: "#process" },
+  { name: "PROBLEM", href: "#problem" },
+  { name: "SOLUTION", href: "#solution" },
+  { name: "ABOUT", href: "#about" },
+];
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -119,15 +126,6 @@ const Header = () => {
       }, 100);
     }
   };
-
-  const navLinks = [
-    { name: "PROBLEM", href: "#problem" },
-    { name: "SOLUTION", href: "#solution" },
-    { name: "OUTCOMES", href: "#outcomes" },
-    { name: "PROCESS", href: "#process" },
-    { name: "PROJECTS", href: "#projects" },
-    { name: "ABOUT", href: "#about" },
-  ];
 
   return (
     <header
@@ -291,7 +289,7 @@ const Hero = () => (
 
     <Reveal delay={100}>
       <h1 style={{ marginTop: "16px", maxWidth: "900px" }}>
-        Get More Spa Bookings — Without Paying for{" "}
+        Get More Spa Bookings{" "}
         <span className="text-italic" style={{ color: "var(--primary)" }}>
           Without Paying for Ads
         </span>
@@ -307,9 +305,9 @@ const Hero = () => (
           maxWidth: "700px",
         }}
       >
-        I redesign spa websites for businesses worldwide so visitors instantly{" "}
-        <strong style={{ color: "var(--text)" }}>trust you</strong>, feel
-        relaxed, and actually book — instead of leaving.
+        I redesign spa and wellness websites so visitors instantly{" "}
+        <strong style={{ color: "var(--text)" }}>trust your brand</strong>, feel
+        the calm before they arrive, and book — instead of browsing and leaving.
       </p>
     </Reveal>
 
@@ -327,14 +325,14 @@ const Hero = () => (
           href="#audit"
           className="btn btn-primary"
           id="hero-cta"
-          aria-label="Get a free homepage audit"
+          aria-label="Get a free homepage redesign"
         >
-          Get a Free Homepage Audit{" "}
+          Get a Free Homepage Redesign{" "}
           <ArrowRight size={20} style={{ marginLeft: "10px" }} />
         </a>
         <div className="offer-pill">
           <Star size={16} style={{ color: "var(--secondary)" }} />
-          <span>25% off your first project — limited spots available</span>
+          <span>25% off your first project — only a few spots left</span>
         </div>
       </div>
     </Reveal>
@@ -369,10 +367,10 @@ const Hero = () => (
           }}
         >
           <h3 style={{ fontSize: "1.3rem", marginBottom: "8px" }}>
-            Serving Clients Worldwide
+            Working With Spas Worldwide
           </h3>
           <p style={{ fontSize: "0.95rem", margin: 0, maxWidth: "none" }}>
-            Specialized strategy for the global wellness market.
+            Conversion-focused design tailored to the wellness industry.
           </p>
         </div>
       </div>
@@ -385,9 +383,9 @@ const Problem = () => (
   <section id="problem" className="section">
     <Reveal>
       <h2 style={{ maxWidth: "720px" }}>
-        Many spa websites look "okay"…{" "}
+        Your spa website might look fine…{" "}
         <span className="text-italic" style={{ color: "var(--secondary)" }}>
-          but quietly lose clients every day.
+          but it's silently losing you bookings.
         </span>
       </h2>
     </Reveal>
@@ -408,7 +406,7 @@ const Problem = () => (
           style={{ marginBottom: "24px", color: "var(--secondary)" }}
         />
         <h3 style={{ color: "white", fontSize: "2rem", marginBottom: "16px" }}>
-          Invisible Differentiation
+          Nothing Sets You Apart
         </h3>
         <p
           style={{
@@ -417,9 +415,9 @@ const Problem = () => (
             maxWidth: "none",
           }}
         >
-          Visitors don't clearly see what makes your spa different from the one
-          three streets away. They leave without booking — and choose someone
-          else.
+          Your website doesn't communicate what makes your spa unique.
+          Visitors can't tell why they should choose you over a competitor — so they
+          leave and book somewhere else.
         </p>
       </Reveal>
 
@@ -433,11 +431,11 @@ const Problem = () => (
           style={{ marginBottom: "24px", color: "var(--primary)" }}
         />
         <h3 style={{ fontSize: "1.5rem", marginBottom: "12px" }}>
-          Mobile Friction
+          Broken Mobile Experience
         </h3>
         <p>
-          The mobile experience feels frustrating — and most clients come from
-          their phone.
+          Over 70% of spa clients browse on their phone. If your site is slow,
+          cluttered, or hard to navigate on mobile — you're losing them.
         </p>
       </Reveal>
 
@@ -451,10 +449,11 @@ const Problem = () => (
           style={{ marginBottom: "24px", color: "var(--primary)" }}
         />
         <h3 style={{ fontSize: "1.5rem", marginBottom: "12px" }}>
-          Hidden Booking
+          Buried Booking Flow
         </h3>
         <p>
-          Booking is hidden or confusing — so visitors give up before they act.
+          Your booking button is buried, unclear, or takes too many steps —
+          so interested visitors give up before they ever make an appointment.
         </p>
       </Reveal>
 
@@ -468,11 +467,11 @@ const Problem = () => (
           style={{ marginBottom: "24px", color: "var(--primary)" }}
         />
         <h3 style={{ fontSize: "1.5rem", marginBottom: "12px" }}>
-          Misaligned Aesthetics
+          Design That Undermines Your Brand
         </h3>
         <p style={{ fontSize: "1.1rem" }}>
-          The design doesn't reflect a calm, premium experience — so people
-          don't feel the quality of your spa before stepping through the door.
+          Your website doesn't feel like your spa. Visitors expect calm,
+          premium, and professional — but the design tells a different story.
         </p>
       </Reveal>
     </div>
@@ -488,153 +487,13 @@ const Problem = () => (
             maxWidth: "none",
           }}
         >
-          So people leave — and choose another spa nearby.
+          The result? Potential clients leave your site and book with a competitor.
         </p>
       </div>
     </Reveal>
   </section>
 );
 
-/* ─────────────────── Solution ─────────────────── */
-const Solution = () => (
-  <section
-    id="solution"
-    className="section"
-    style={{
-      background: "var(--primary)",
-      borderRadius: "60px",
-      color: "white",
-    }}
-  >
-    <div className="grid-bento">
-      <Reveal className="solution-left" style={{ gridColumn: "span 5" }}>
-        <div style={{ gridColumn: "span 5" }}>
-          <div
-            className="badge"
-            style={{ background: "rgba(255,255,255,0.15)", color: "white" }}
-          >
-            The Solution
-          </div>
-          <h2 style={{ color: "white", marginTop: "16px" }}>
-            Turn your website into a{" "}
-            <span className="text-italic" style={{ color: "var(--secondary)" }}>
-              client-booking experience.
-            </span>
-          </h2>
-          <p
-            style={{
-              color: "rgba(255,255,255,0.8)",
-              marginTop: "24px",
-              maxWidth: "none",
-            }}
-          >
-            I help spa and wellness businesses worldwide redesign their website
-            from a passive brochure into an active booking engine.
-          </p>
-          <a
-            href="#audit"
-            className="btn"
-            style={{
-              marginTop: "40px",
-              background: "var(--secondary)",
-              color: "var(--text)",
-            }}
-          >
-            Get Started <ArrowRight size={18} style={{ marginLeft: "8px" }} />
-          </a>
-        </div>
-      </Reveal>
-
-      <div
-        style={{
-          gridColumn: "span 7",
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: "24px",
-        }}
-      >
-        {[
-          {
-            icon: <ArrowRight size={24} />,
-            title: "Clear Visit → Booking Path",
-            text: "A friction-free journey from first click to a confirmed appointment.",
-          },
-          {
-            icon: <ShieldCheck size={24} />,
-            title: "Strong First Impression",
-            text: "Premium calm design establishes trust within seconds.",
-          },
-          {
-            icon: <Palette size={24} />,
-            title: "Brand-Aligned Design",
-            text: "Design that genuinely reflects your spa's identity and atmosphere.",
-          },
-          {
-            icon: <Smartphone size={24} />,
-            title: "Smooth Mobile Experience",
-            text: "Flawless across all devices — especially the phones your clients use.",
-          },
-        ].map((item, i) => (
-          <Reveal key={i} delay={i * 80}>
-            <div
-              style={{
-                borderLeft: "2px solid var(--secondary)",
-                paddingLeft: "20px",
-              }}
-            >
-              <div style={{ color: "var(--secondary)", marginBottom: "12px" }}>
-                {item.icon}
-              </div>
-              <h4
-                style={{
-                  fontSize: "1.15rem",
-                  marginBottom: "8px",
-                  color: "white",
-                }}
-              >
-                {item.title}
-              </h4>
-              <p
-                style={{
-                  fontSize: "0.95rem",
-                  color: "rgba(255,255,255,0.72)",
-                  margin: 0,
-                  maxWidth: "none",
-                }}
-              >
-                {item.text}
-              </p>
-            </div>
-          </Reveal>
-        ))}
-      </div>
-    </div>
-
-    <Reveal delay={200}>
-      <div
-        style={{
-          marginTop: "56px",
-          padding: "28px 36px",
-          background: "rgba(255,255,255,0.1)",
-          borderRadius: "20px",
-          borderLeft: "4px solid var(--secondary)",
-        }}
-      >
-        <p
-          style={{
-            margin: 0,
-            color: "white",
-            fontSize: "1.2rem",
-            fontWeight: 600,
-            maxWidth: "none",
-          }}
-        >
-          Result: More visitors become paying clients.
-        </p>
-      </div>
-    </Reveal>
-  </section>
-);
 
 /* ─────────────────── Limited Offer ─────────────────── */
 const LimitedOffer = () => (
@@ -648,13 +507,13 @@ const LimitedOffer = () => (
           Limited Offer
         </div>
         <h2 style={{ marginTop: "16px", maxWidth: "700px" }}>
-          25% Off for Spa Businesses{" "}
+          25% Off Your First{" "}
           <span className="text-italic" style={{ color: "var(--primary)" }}>
-            worldwide
+            Website Project
           </span>
         </h2>
         <p style={{ fontSize: "1.2rem", marginTop: "24px" }}>
-          To make it easy to get started without full risk:
+          I want to make it easy to get started — with zero risk:
         </p>
         <ul className="offer-list">
           <li>
@@ -662,21 +521,21 @@ const LimitedOffer = () => (
               size={20}
               style={{ color: "var(--primary)", flexShrink: 0 }}
             />
-            <span>25% discount on your first project</span>
+            <span>25% discount on your first website redesign</span>
           </li>
           <li>
             <CheckCircle
               size={20}
               style={{ color: "var(--primary)", flexShrink: 0 }}
             />
-            <span>Available for a limited number of local spa businesses</span>
+            <span>Open to spa and wellness businesses worldwide</span>
           </li>
           <li>
             <CheckCircle
               size={20}
               style={{ color: "var(--primary)", flexShrink: 0 }}
             />
-            <span>A simple way to improve your website without full risk</span>
+            <span>See the redesign concept before you commit</span>
           </li>
         </ul>
         <a
@@ -691,19 +550,19 @@ const LimitedOffer = () => (
   </section>
 );
 
-/* ─────────────────── Outcomes ─────────────────── */
-const Outcomes = () => (
-  <section id="outcomes" className="section">
+/* ─────────────────── Solution ─────────────────── */
+const Solution = () => (
+  <section id="solution" className="section">
     <Reveal>
       <div style={{ textAlign: "center", marginBottom: "64px" }}>
         <h2>
-          What you{" "}
+          What your new website{" "}
           <span className="text-italic" style={{ color: "var(--primary)" }}>
-            actually get.
+            actually delivers.
           </span>
         </h2>
         <p style={{ margin: "16px auto 0", textAlign: "center" }}>
-          Real, measurable outcomes — not just a prettier website.
+          Not just a prettier design — real, measurable business outcomes.
         </p>
       </div>
     </Reveal>
@@ -712,33 +571,33 @@ const Outcomes = () => (
       {[
         {
           icon: <MousePointerClick size={36} />,
-          title: "More Bookings from Your Website",
-          text: "Your visitors don't hesitate — they act. Clear, persuasive CTAs guide them from interest to appointment.",
+          title: "Higher Booking Conversion",
+          text: "Every element is designed to guide visitors from browsing to booking. Clear calls-to-action, streamlined flow, zero friction.",
           size: "span 6",
           accent: true,
         },
         {
           icon: <ShieldCheck size={36} />,
-          title: "Instant Trust",
-          text: "Your website reflects the real quality of your spa — before they even walk through the door.",
+          title: "Instant Client Trust",
+          text: "Professional design, real testimonials, and a calming visual identity that reflects the quality of your spa — before they even visit.",
           size: "span 6",
         },
         {
           icon: <Smartphone size={36} />,
-          title: "Better Mobile Experience",
-          text: "Easy booking from phone — where most clients come from. No friction, no confusion.",
+          title: "Flawless Mobile Booking",
+          text: "A fast, beautiful experience on every phone. One-tap booking, easy navigation, no pinching or zooming.",
           size: "span 4",
         },
         {
           icon: <Zap size={36} />,
-          title: "More Independence",
-          text: "Less reliance on third-party booking platforms that take your margin and data.",
+          title: "Own Your Client Relationship",
+          text: "Stop depending on third-party platforms that take your margins. Your website becomes your primary booking channel.",
           size: "span 4",
         },
         {
           icon: <Link size={36} />,
-          title: "Stronger Local Presence",
-          text: "Stand out among spa businesses everywhere with a site that looks like it belongs at the top.",
+          title: "Stand Out in Your Market",
+          text: "A website that positions your spa as the premium choice — whether clients find you on Google, social media, or word of mouth.",
           size: "span 4",
         },
       ].map((item, i) => (
@@ -807,22 +666,22 @@ const FreeAudit = () => (
         <div>
           <div className="badge">Free — No Strings Attached</div>
           <h2 style={{ marginTop: "16px", maxWidth: "580px" }}>
-            I'll personally review your homepage and show you{" "}
+            I'll personally redesign your homepage and send you a{" "}
             <span className="text-italic" style={{ color: "var(--primary)" }}>
-              exactly what's costing you bookings.
+              complete visual concept.
             </span>
           </h2>
           <div style={{ marginTop: "40px", display: "grid", gap: "24px" }}>
             {[
               {
                 icon: <Search size={20} />,
-                text: "Where you're losing clients",
+                text: "Exactly what's costing you bookings right now",
               },
               {
-                icon: <NavigationOff size={20} />,
-                text: "What's blocking bookings",
+                icon: <Palette size={20} />,
+                text: "A redesigned homepage concept tailored to your spa",
               },
-              { icon: <Zap size={20} />, text: "What can be improved quickly" },
+              { icon: <Zap size={20} />, text: "A clear breakdown of why the new version converts better" },
             ].map((item, i) => (
               <div
                 key={i}
@@ -865,7 +724,7 @@ const FreeAudit = () => (
               color: "var(--text-muted)",
             }}
           >
-            Short, clear, and practical.
+            Concise, actionable, and delivered within 48 hours.
           </p>
         </div>
 
@@ -883,11 +742,10 @@ const FreeAudit = () => (
               marginBottom: "8px",
             }}
           >
-            Request Your Free Audit
+            Get Your Free Redesign Concept
           </h3>
           <p style={{ marginBottom: "32px", fontSize: "1rem" }}>
-            Send your website and I'll get back to you with clear improvement
-            ideas.
+            Share your website URL and I'll send you a redesigned homepage with a full breakdown.
           </p>
           <AuditForm />
         </div>
@@ -929,6 +787,8 @@ const AuditForm = () => {
       } else if (!urlRegex.test(value)) {
         error = "Please enter a valid URL (e.g. www.example.com)";
       }
+    } else if (name === "phone" && !value) {
+      error = "WhatsApp number is required";
     }
     setErrors((prev) => ({ ...prev, [name]: error }));
     return !error;
@@ -938,7 +798,8 @@ const AuditForm = () => {
     const isNameValid = validateField("name", state.name);
     const isEmailValid = validateField("email", state.email);
     const isUrlValid = validateField("url", state.url);
-    return isNameValid && isEmailValid && isUrlValid;
+    const isPhoneValid = validateField("phone", state.phone);
+    return isNameValid && isEmailValid && isUrlValid && isPhoneValid;
   };
 
   const handleBlur = (e) => {
@@ -1014,8 +875,8 @@ const AuditForm = () => {
             maxWidth: "none",
           }}
         >
-          Since I'm in Helsinki, I'll be reviewing this during my morning hours
-          and reach out within 48 hours with clear insights.
+          I'm based in Helsinki, so I'll review your site during my morning
+          hours and get back to you within 48 hours with a complete redesign concept.
         </p>
       </div>
     );
@@ -1030,13 +891,13 @@ const AuditForm = () => {
       <div className="form-field">
         <fieldset className={errors.name ? "has-error" : ""}>
           <legend>
-            Full Name <span className="required">*</span>
+            First Name <span className="required">*</span>
           </legend>
           <div className="input-wrapper">
             <input
               type="text"
               name="name"
-              placeholder="e.g. Jakob Müller"
+              placeholder="e.g. Anna"
               value={state.name}
               onBlur={handleBlur}
               onChange={(e) => {
@@ -1058,6 +919,37 @@ const AuditForm = () => {
         {errors.name && <span className="form-error">{errors.name}</span>}
       </div>
 
+            <div className="form-field">
+        <fieldset className={errors.url ? "has-error" : ""}>
+          <legend>
+            Website URL <span className="required">*</span>
+          </legend>
+          <div className="input-wrapper">
+            <input
+              type="text"
+              name="url"
+              placeholder="e.g. www.yourspa.com"
+              value={state.url}
+              onBlur={handleBlur}
+              onChange={(e) => {
+                setState({ ...state, url: e.target.value });
+                if (errors.url) setErrors((prev) => ({ ...prev, url: null }));
+              }}
+            />
+            {state.url && (
+              <button
+                type="button"
+                className="clear-btn"
+                onClick={() => clearField("url")}
+              >
+                <XCircle size={16} />
+              </button>
+            )}
+          </div>
+        </fieldset>
+        {errors.url && <span className="form-error">{errors.url}</span>}
+      </div>
+
       <div className="form-field">
         <fieldset className={errors.email ? "has-error" : ""}>
           <legend>
@@ -1067,7 +959,7 @@ const AuditForm = () => {
             <input
               type="email"
               name="email"
-              placeholder="e.g. jakob@yourspa.com"
+              placeholder="e.g. anna@yourspa.com"
               value={state.email}
               onBlur={handleBlur}
               onChange={(e) => {
@@ -1090,63 +982,22 @@ const AuditForm = () => {
         {errors.email && <span className="form-error">{errors.email}</span>}
       </div>
 
-      <div className="form-field">
-        <fieldset className={errors.url ? "has-error" : ""}>
-          <legend>
-            Website URL <span className="required">*</span>
-          </legend>
-          <div className="input-wrapper">
-            <input
-              type="text"
-              name="url"
-              placeholder="e.g. www.yourspa-wellness.com"
-              value={state.url}
-              onBlur={handleBlur}
-              onChange={(e) => {
-                setState({ ...state, url: e.target.value });
-                if (errors.url) setErrors((prev) => ({ ...prev, url: null }));
-              }}
-            />
-            {state.url && (
-              <button
-                type="button"
-                className="clear-btn"
-                onClick={() => clearField("url")}
-              >
-                <XCircle size={16} />
-              </button>
-            )}
-          </div>
-        </fieldset>
-        {errors.url && <span className="form-error">{errors.url}</span>}
-      </div>
-
-      {!isExpanded ? (
-        <button
-          type="button"
-          onClick={() => setIsExpanded(true)}
-          className="expand-btn"
-        >
-          <Plus size={16} /> Add whatsapp number & notes
-        </button>
-      ) : (
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
-          transition={{ duration: 0.3 }}
-          style={{ overflow: "hidden" }}
-        >
           <div className="form-field">
-            <fieldset>
-              <legend>WhatsApp Number</legend>
+            <fieldset className={errors.phone ? "has-error" : ""}>
+              <legend>
+                WhatsApp Number <span className="required">*</span>
+              </legend>
               <div className="input-wrapper">
                 <input
                   type="tel"
                   name="phone"
-                  placeholder="e.g. +41 79 123 45 67"
+                  placeholder="e.g. +358 41 234 5678"
                   value={state.phone}
+                  onBlur={handleBlur}
                   onChange={(e) => {
                     setState({ ...state, phone: e.target.value });
+                    if (errors.phone)
+                      setErrors((prev) => ({ ...prev, phone: null }));
                   }}
                 />
                 {state.phone && (
@@ -1160,7 +1011,26 @@ const AuditForm = () => {
                 )}
               </div>
             </fieldset>
+            {errors.phone && (
+              <span className="form-error">{errors.phone}</span>
+            )}
           </div>
+
+      {!isExpanded ? (
+        <button
+          type="button"
+          onClick={() => setIsExpanded(true)}
+          className="expand-btn"
+        >
+          <Plus size={16} /> Add specific notes
+        </button>
+      ) : (
+        <motion.div
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: "auto" }}
+          transition={{ duration: 0.3 }}
+          style={{ overflow: "hidden" }}
+        >
 
           <div className="form-field">
             <fieldset>
@@ -1168,7 +1038,7 @@ const AuditForm = () => {
               <div className="input-wrapper">
                 <textarea
                   name="notes"
-                  placeholder="Tell me more about your goals or specific concerns..."
+                  placeholder="Tell me about your spa, your goals, or anything specific you'd like improved..."
                   value={state.notes}
                   onChange={(e) =>
                     setState({ ...state, notes: e.target.value })
@@ -1185,13 +1055,13 @@ const AuditForm = () => {
         className="btn btn-primary"
         disabled={loading}
         style={{ width: "100%", marginTop: "16px", opacity: loading ? 0.7 : 1 }}
-        aria-label="Request your free homepage audit"
+        aria-label="Request your free homepage redesign"
       >
         {loading ? (
           "Sending…"
         ) : (
           <>
-            Request Your Free Audit{" "}
+            Get Your Free Redesign Concept{" "}
             <Send size={18} style={{ marginLeft: "10px" }} />
           </>
         )}
@@ -1205,7 +1075,7 @@ const AuditForm = () => {
           maxWidth: "none",
         }}
       >
-        No spam. No sales pressure. Just clear insights.
+        No spam. No sales pressure. Just a redesign concept you can use.
       </p>
     </form>
   );
@@ -1223,7 +1093,7 @@ const Process = () => (
           </span>
         </h2>
         <p style={{ margin: "16px auto 0", textAlign: "center" }}>
-          Four simple steps. Zero commitment until you're ready.
+          A transparent, step-by-step process. No commitment until you're ready.
         </p>
       </div>
     </Reveal>
@@ -1231,7 +1101,7 @@ const Process = () => (
     <div
       style={{
         display: "grid",
-        gridTemplateColumns: "repeat(4, 1fr)",
+        gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
         gap: "24px",
       }}
       className="process-grid"
@@ -1239,37 +1109,61 @@ const Process = () => (
       {[
         {
           step: "01",
-          icon: <Send size={28} />,
-          title: "You send your website",
-          text: "Drop your website link — takes 30 seconds.",
+          title: "Share Your Spa",
+          badge: "Free",
+          text: (
+            <>
+              Send me your spa website link by{" "}
+              <strong style={{ color: "var(--primary)" }}>
+                submitting the form
+              </strong>{" "}
+              below. It takes less than two minutes, and there's absolutely no
+              commitment.
+            </>
+          ),
         },
         {
           step: "02",
-          icon: <Search size={28} />,
-          title: "I review it",
-          text: "I personally audit your homepage for conversion gaps.",
+          title: "Custom Redesign Concept",
+          text: "I’ll analyze your current site and create a custom homepage concept designed to convert visitors into clients—showing you exactly what I'd improve and why.",
         },
         {
           step: "03",
-          icon: <CheckCircle size={28} />,
-          title: "You get clear ideas",
-          text: "A concise, actionable breakdown of what to fix and why.",
+          title: "Scope & Strategy Call",
+          text: "If you like the concept, we’ll jump on a quick call to discuss the project scope, feature requirements, timelines, and how to reach your growth goals.",
         },
         {
           step: "04",
-          icon: <Zap size={28} />,
-          title: "We improve it together",
-          text: "If you like — we build it (with 25% off your first project).",
+          title: "Kickoff & Development",
+          badge: "Initial Payment",
+          text: "Once we’re aligned, I begin development. I’ll provide you with a private, live design preview so you can see your site coming to life in real-time.",
+        },
+        {
+          step: "05",
+          title: "Refinement & Launch",
+          text: "We’ll iterate based on your feedback. Once it's polished to perfection, we'll go live, and I’ll provide a full handover and training.",
+        },
+        {
+          step: "06",
+          title: "Final Delivery",
+          badge: "Completion",
+          text: "With final payment, the site is yours. No lock-in, no hidden proprietary software. You own your code, your content, and your success.",
+        },
+        {
+          step: "07",
+          title: "Ongoing Wellness Care",
+          badge: "€99/mo (Optional)",
+          text: "I offer optional support—handling updates, fixes, and performance tuning—so you can focus entirely on your guests. Cancel anytime.",
         },
       ].map((item, i) => (
-        <Reveal key={i} delay={i * 100}>
+        <Reveal key={i} delay={i * 100} style={{ gridColumn: i === 1 ? "span 2" : undefined }}>
           <div
             className="bento-card process-card"
-            style={{ textAlign: "center", alignItems: "center" }}
+            style={{ textAlign: "left", alignItems: "flex-start", height: "100%", display: "flex", flexDirection: "column" }}
           >
-            <div className="step-number">{item.step}</div>
-            <div style={{ color: "var(--primary)", margin: "20px 0 16px" }}>
-              {item.icon}
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%", marginBottom: "16px" }}>
+               <div className="step-number" style={{ margin: 0 }}>{item.step}</div>
+               {item.badge && <div className="badge" style={{ margin: 0, padding: "4px 8px", fontSize: "0.75rem" }}>{item.badge}</div>}
             </div>
             <h3 style={{ fontSize: "1.2rem", marginBottom: "10px" }}>
               {item.title}
@@ -1284,189 +1178,6 @@ const Process = () => (
   </section>
 );
 
-/* ─────────────────── Visual Preview Hook ─────────────────── */
-const VisualPreview = () => (
-  <section
-    className="section"
-    style={{
-      background: "linear-gradient(135deg, var(--primary) 0%, #3a4f34 100%)",
-      borderRadius: "60px",
-      color: "white",
-      textAlign: "center",
-      overflow: "hidden", // Added to ensure rounded corners work with internal content
-    }}
-  >
-    <Reveal>
-      <div
-        className="badge"
-        style={{
-          background: "rgba(255,255,255,0.15)",
-          color: "var(--secondary)",
-        }}
-      >
-        For Selected Businesses Worldwide
-      </div>
-      <h2
-        style={{
-          color: "white",
-          marginTop: "20px",
-          maxWidth: "680px",
-          margin: "20px auto 0",
-        }}
-      >
-        See the improvement{" "}
-        <span className="text-italic" style={{ color: "var(--secondary)" }}>
-          before deciding.
-        </span>
-      </h2>
-      <p
-        style={{
-          color: "rgba(255,255,255,0.8)",
-          textAlign: "center",
-          margin: "24px auto 0",
-        }}
-      >
-        For selected businesses worldwide, I create a quick homepage redesign
-        preview — so you can see the transformation before committing to
-        anything.
-      </p>
-      <a
-        href="#audit"
-        className="btn"
-        style={{
-          marginTop: "40px",
-          background: "var(--secondary)",
-          color: "var(--text)",
-        }}
-      >
-        Request Your Preview <Palette size={18} style={{ marginLeft: "8px" }} />
-      </a>
-    </Reveal>
-
-    {/* Mock preview cards */}
-    <Reveal delay={200}>
-      <div
-        style={{
-          marginTop: "64px",
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: "24px",
-          maxWidth: "900px",
-          margin: "64px auto 0",
-        }}
-      >
-        <div
-          style={{
-            background: "rgba(255,255,255,0.08)",
-            borderRadius: "24px",
-            padding: "32px",
-            border: "1px solid rgba(255,255,255,0.15)",
-            textAlign: "left",
-          }}
-        >
-          <p
-            style={{
-              color: "rgba(255,255,255,0.5)",
-              fontSize: "0.8rem",
-              margin: "0 0 12px",
-              maxWidth: "none",
-              fontWeight: 600,
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-            }}
-          >
-            Before
-          </p>
-          <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-            {[
-              "Generic homepage",
-              "Hard-to-find booking",
-              "Unclear services",
-              "No trust signals",
-            ].map((t, i) => (
-              <div
-                key={i}
-                style={{ display: "flex", gap: "10px", alignItems: "center" }}
-              >
-                <div
-                  style={{
-                    width: "8px",
-                    height: "8px",
-                    borderRadius: "50%",
-                    background: "rgba(255,100,100,0.6)",
-                    flexShrink: 0,
-                  }}
-                />
-                <p
-                  style={{
-                    margin: 0,
-                    fontSize: "0.95rem",
-                    color: "rgba(255,255,255,0.65)",
-                    maxWidth: "none",
-                  }}
-                >
-                  {t}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div
-          style={{
-            background: "rgba(194, 159, 109, 0.15)",
-            borderRadius: "24px",
-            padding: "32px",
-            border: "1px solid var(--secondary)",
-            textAlign: "left",
-          }}
-        >
-          <p
-            style={{
-              color: "var(--secondary)",
-              fontSize: "0.8rem",
-              margin: "0 0 12px",
-              maxWidth: "none",
-              fontWeight: 600,
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-            }}
-          >
-            After
-          </p>
-          <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-            {[
-              "Premium, calm design",
-              "1-click booking path",
-              "Clear unique offer",
-              "Instant trust signals",
-            ].map((t, i) => (
-              <div
-                key={i}
-                style={{ display: "flex", gap: "10px", alignItems: "center" }}
-              >
-                <CheckCircle
-                  size={16}
-                  style={{ color: "var(--secondary)", flexShrink: 0 }}
-                />
-                <p
-                  style={{
-                    margin: 0,
-                    fontSize: "0.95rem",
-                    color: "rgba(255,255,255,0.9)",
-                    maxWidth: "none",
-                  }}
-                >
-                  {t}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </Reveal>
-  </section>
-);
-
 /* ─────────────────── Recent Projects ─────────────────── */
 const RecentProjects = () => (
   <section className="section" id="projects">
@@ -1476,11 +1187,11 @@ const RecentProjects = () => (
         <h2 style={{ marginTop: "16px" }}>
           Recent{" "}
           <span className="text-italic" style={{ color: "var(--primary)" }}>
-            Success Stories.
+            Spa Success Stories.
           </span>
         </h2>
         <p style={{ margin: "16px auto 0", textAlign: "center" }}>
-          Websites that don't just look calm — they drive real bookings.
+          Websites designed to build trust, elevate brand image, and maximize bookings.
         </p>
       </div>
     </Reveal>
@@ -1493,7 +1204,7 @@ const RecentProjects = () => (
           image: auraBernImg,
           link: "https://sahedalomsumit.github.io/aurabern.ch/",
           description:
-            "A premium medical spa website focusing on high-end aesthetics and conversion-driven design.",
+            "A high-end medical spa site built to convey clinical precision and comfort. Featuring streamlined treatment menus and an frictionless path to booking consultations.",
         },
         {
           title: "Jenni Wellbeing",
@@ -1501,7 +1212,7 @@ const RecentProjects = () => (
           image: jenniImg,
           link: "https://sahedalomsumit.github.io/jenni-wellbeing.ch/",
           description:
-            "Redesigning the online presence for a holistic wellbeing studio to reflect calm and professionality.",
+            "A serene, inviting design for a local wellness studio. The focus here was on creating an atmosphere of calm that makes choosing a service feel easy and natural.",
         },
       ].map((project, i) => (
         <Reveal key={i} delay={i * 100} style={{ gridColumn: "span 6" }}>
@@ -1519,13 +1230,7 @@ const RecentProjects = () => (
               textDecoration: "none",
             }}
           >
-            <div
-              style={{
-                position: "relative",
-                overflow: "hidden",
-                height: "340px",
-              }}
-            >
+            <div className="portfolio-image-wrapper">
               <img
                 src={project.image}
                 alt={project.title}
@@ -1640,7 +1345,7 @@ const About = () => (
           />
           <img
             src={profileImg}
-            alt="Sahed Alom Sumit, web designer specializing in the Swiss market"
+            alt="Sahed Alom Sumit, web designer for spas and wellness businesses"
             style={{
               width: "100%",
               height: "100%",
@@ -1712,14 +1417,14 @@ const About = () => (
             marginBottom: "24px",
           }}
         >
-          Modern web design. Clean development. <br />
-          AI automation that makes sense.
+          High-conversion web design for spas. <br />
+          Modern, clean, and reliable.
         </p>
 
         <p style={{ maxWidth: "none", fontSize: "1.1rem", lineHeight: 1.7 }}>
-          Your website problem becomes my problem the moment you share it. I
-          don't stop until it's solved—that's how I'm wired. That's why I call
-          this my passion, not my job.
+          When you share your website with me, your problem becomes my
+          problem. I don't stop until it's solved — that's what drives my work
+          and why I treat every project as a craft, not a task.
         </p>
 
         <p
@@ -1730,11 +1435,11 @@ const About = () => (
             marginTop: "16px",
           }}
         >
-          For 5+ years, I've worked with founders, brands, and agencies
-          worldwide—turning rough ideas into sites that load fast, look right,
-          and actually convert. I work at the intersection of design and
-          full-stack development. I care about the vibe of a page as much as the
-          code behind it.
+          For over 5 years, I've partnered with founders, spa owners, and
+          agencies worldwide — turning rough ideas into websites that load fast,
+          feel right, and actually convert visitors into clients. I work at the
+          intersection of design and full-stack development, caring as much
+          about the visual experience as the code powering it.
         </p>
 
         <p
@@ -1745,9 +1450,10 @@ const About = () => (
             marginTop: "16px",
           }}
         >
-          I also understand the business side because of my bachelor's in
-          Business IT. Based in Helsinki, I work with clients worldwide to
-          ensure nothing I build is just pretty—it works toward your goals.
+          With a bachelor's in Business IT, I understand both the technical
+          and commercial sides of your website. Based in Helsinki, I work with
+          spa and wellness businesses worldwide to ensure every site I build
+          isn't just beautiful — it's built to grow your bookings.
         </p>
         <a
           href="#audit"
@@ -1775,9 +1481,9 @@ const FinalCTA = () => (
   >
     <Reveal>
       <h2 style={{ color: "white", maxWidth: "700px", margin: "0 auto" }}>
-        If your website isn't bringing you bookings,{" "}
+        See the improvement{" "}
         <span className="text-italic" style={{ color: "var(--secondary)" }}>
-          it's costing you clients.
+          before you commit.
         </span>
       </h2>
       <p
@@ -1787,11 +1493,136 @@ const FinalCTA = () => (
           margin: "24px auto 0",
         }}
       >
-        Let's fix it — with a clear plan and 25% off your first project.
+        Get a free redesign concept — plus 25% off when you're ready to move forward.
       </p>
+    </Reveal>
+
+    {/* Mock preview cards */}
+    <Reveal delay={200}>
+      <div
+        className="preview-cards-grid"
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+          gap: "24px",
+          maxWidth: "900px",
+          margin: "40px auto 64px",
+        }}
+      >
+        <div
+          style={{
+            background: "rgba(255,255,255,0.08)",
+            borderRadius: "24px",
+            padding: "32px",
+            border: "1px solid rgba(255,255,255,0.15)",
+            textAlign: "left",
+          }}
+        >
+          <p
+            style={{
+              color: "rgba(255,255,255,0.5)",
+              fontSize: "0.8rem",
+              margin: "0 0 12px",
+              maxWidth: "none",
+              fontWeight: 600,
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+            }}
+          >
+            Before
+          </p>
+          <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+            {[
+              "Template-based design with no personality",
+              "Booking button buried three clicks deep",
+              "Services listed without clear value or pricing",
+              "No reviews, certifications, or trust elements",
+            ].map((t, i) => (
+              <div
+                key={i}
+                style={{ display: "flex", gap: "10px", alignItems: "center" }}
+              >
+                <div
+                  style={{
+                    width: "8px",
+                    height: "8px",
+                    borderRadius: "50%",
+                    background: "rgba(255,100,100,0.6)",
+                    flexShrink: 0,
+                  }}
+                />
+                <p
+                  style={{
+                    margin: 0,
+                    fontSize: "0.95rem",
+                    color: "rgba(255,255,255,0.65)",
+                    maxWidth: "none",
+                  }}
+                >
+                  {t}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div
+          style={{
+            background: "rgba(194, 159, 109, 0.15)",
+            borderRadius: "24px",
+            padding: "32px",
+            border: "1px solid var(--secondary)",
+            textAlign: "left",
+          }}
+        >
+          <p
+            style={{
+              color: "var(--secondary)",
+              fontSize: "0.8rem",
+              margin: "0 0 12px",
+              maxWidth: "none",
+              fontWeight: 600,
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+            }}
+          >
+            After
+          </p>
+          <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+            {[
+              "Calm, premium design that matches your spa",
+              "Prominent one-tap booking from any page",
+              "Services presented with clear benefits and pricing",
+              "Client reviews and trust signals front and center",
+            ].map((t, i) => (
+              <div
+                key={i}
+                style={{ display: "flex", gap: "10px", alignItems: "center" }}
+              >
+                <CheckCircle
+                  size={16}
+                  style={{ color: "var(--secondary)", flexShrink: 0 }}
+                />
+                <p
+                  style={{
+                    margin: 0,
+                    fontSize: "0.95rem",
+                    color: "rgba(255,255,255,0.9)",
+                    maxWidth: "none",
+                  }}
+                >
+                  {t}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </Reveal>
+
+    <Reveal delay={300}>
       <div
         style={{
-          marginTop: "48px",
+          marginTop: "0px",
           display: "flex",
           gap: "16px",
           justifyContent: "center",
@@ -1803,7 +1634,7 @@ const FinalCTA = () => (
           className="btn"
           style={{ background: "var(--secondary)", color: "var(--text)" }}
         >
-          Get Your Free Homepage Audit{" "}
+          Get Your Free Redesign Concept{" "}
           <ArrowRight size={20} style={{ marginLeft: "10px" }} />
         </a>
       </div>
@@ -1815,7 +1646,7 @@ const FinalCTA = () => (
           maxWidth: "none",
         }}
       >
-        No credit card. No commitment. Just clarity.
+        No credit card. No commitment. Just a clear path to more bookings.
       </p>
     </Reveal>
   </section>
@@ -1834,14 +1665,12 @@ export default function App() {
     <div style={{ background: "var(--bg)", minHeight: "100vh" }}>
       <Header />
       <Hero />
+      <RecentProjects />
+      <Process />
       <Problem />
       <Solution />
       <LimitedOffer />
-      <Outcomes />
       <FreeAudit />
-      <Process />
-      <VisualPreview />
-      <RecentProjects />
       <About />
       <FinalCTA />
 
@@ -1942,7 +1771,7 @@ const FloatingAuditButton = () => {
               fontWeight: 700,
             }}
           >
-            Free Audit
+            Free Redesign
           </span>
         </div>
         <div
